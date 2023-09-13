@@ -1,5 +1,5 @@
 
-# Oong Game
+# Pong Game
 This project is about making use of the MPU-6050 sensor as a ping-pong racket in a python-generated pong-game. The segmentation is as explained below: 
 
 1. Chapter 0: INTRODUCTION
