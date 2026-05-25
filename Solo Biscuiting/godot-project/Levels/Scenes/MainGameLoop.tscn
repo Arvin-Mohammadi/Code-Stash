@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtd0h30cr6h6o"]
+
+[ext_resource type="Texture2D" uid="uid://cupg3wsyblcdd" path="res://Levels/Sprites/Background.png" id="1_m05bs"]
+[ext_resource type="PackedScene" uid="uid://c0k24nntpcc36" path="res://UI/HUD/Scenes/HUD.tscn" id="1_u0qal"]
+[ext_resource type="PackedScene" uid="uid://d0pcn81u5lidj" path="res://Entities/Player/Scenes/Player.tscn" id="3_jgfbb"]
+[ext_resource type="PackedScene" uid="uid://c6q0ooxifnbvt" path="res://Entities/SkeletonEnemy/Scenes/SkeletonEnemy.tscn" id="4_frrk2"]
+
+[node name="MainGameLoop" type="Node2D"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource("1_u0qal")]
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -128
+
+[node name="Texture" type="TextureRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_m05bs")
+stretch_mode = 3
+
+[node name="EnvironmentalObjects" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="EnvironmentalObjects" instance=ExtResource("3_jgfbb")]
+y_sort_enabled = true
+position = Vector2(122, 143)
+
+[node name="Enemies" type="Node2D" parent="EnvironmentalObjects"]
+
+[node name="SkeletonEnemy" parent="EnvironmentalObjects/Enemies" instance=ExtResource("4_frrk2")]
+position = Vector2(60, 97)
+
+[node name="SkeletonEnemy2" parent="EnvironmentalObjects/Enemies" instance=ExtResource("4_frrk2")]
+position = Vector2(363, 132)
+
+[node name="SkeletonEnemy3" parent="EnvironmentalObjects/Enemies" instance=ExtResource("4_frrk2")]
+position = Vector2(260, 246)

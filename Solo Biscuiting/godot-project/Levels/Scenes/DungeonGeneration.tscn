@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0p3lqadvoea3"]
+
+[ext_resource type="Script" path="res://Levels/Scripts/DungeonGeneration.gd" id="1_yu5jv"]
+[ext_resource type="Texture2D" uid="uid://ga558pwi84l0" path="res://Levels/Sprites/Dungeon_Tileset.png" id="2_qhd2p"]
+[ext_resource type="PackedScene" uid="uid://d0pcn81u5lidj" path="res://Entities/Player/Scenes/Player.tscn" id="3_gpurw"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n8vid"]
+texture = ExtResource("2_qhd2p")
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_si80q"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 3
+sources/0 = SubResource("TileSetAtlasSource_n8vid")
+
+[node name="DungeonGeneration" type="Node2D" node_paths=PackedStringArray("tilemap", "player", "minimap")]
+script = ExtResource("1_yu5jv")
+tilemap = NodePath("TileMapLayer")
+player = NodePath("Player")
+minimap = NodePath("CanvasLayer/Minimap")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_si80q")
+
+[node name="Player" parent="." instance=ExtResource("3_gpurw")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Minimap" type="TextureRect" parent="CanvasLayer"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 111.0
+offset_top = -69.0
+offset_right = 232.0
+offset_bottom = 25.0
+expand_mode = 1
+stretch_mode = 3

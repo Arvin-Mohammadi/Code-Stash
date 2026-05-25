@@ -1,0 +1,175 @@
+[gd_scene format=3 uid="uid://c0k24nntpcc36"]
+
+[ext_resource type="Texture2D" uid="uid://bbk7ki1gbuw8q" path="res://UI/HUD/Sprites/Frame.png" id="1_0qrok"]
+[ext_resource type="Script" uid="uid://g306dcifcyy5" path="res://UI/HUD/Scripts/HUD.gd" id="1_oxtlp"]
+[ext_resource type="Texture2D" uid="uid://co0vfr2eax46l" path="res://UI/HUD/Sprites/Background.png" id="2_rlw8d"]
+[ext_resource type="Texture2D" uid="uid://ndbpxw3fp2vn" path="res://UI/HUD/Sprites/Pause-Button.png" id="2_sebbx"]
+[ext_resource type="Texture2D" uid="uid://bj2elq84a2106" path="res://UI/HUD/Sprites/Resume-Button.png" id="3_ig0ax"]
+[ext_resource type="Texture2D" uid="uid://c8j5inbxf2jd0" path="res://UI/HUD/Sprites/Pause-Button-Pressed.png" id="3_pmt4y"]
+[ext_resource type="Texture2D" uid="uid://bmboh00ebptft" path="res://UI/HUD/Sprites/Game-Over-Screen.png" id="3_q334j"]
+[ext_resource type="Texture2D" uid="uid://c06af2p4e1qq5" path="res://UI/HUD/Sprites/Resume-Button-Pressed.png" id="4_p4ebc"]
+[ext_resource type="Texture2D" uid="uid://crdioahaplvcr" path="res://UI/HUD/Sprites/Pause-Button-Hover.png" id="4_rwbmi"]
+[ext_resource type="Texture2D" uid="uid://c4ha4ie8437vo" path="res://UI/HUD/Sprites/Health-Bar.png" id="5_8q8ue"]
+[ext_resource type="Texture2D" uid="uid://dcq1xdd8nwapv" path="res://UI/HUD/Sprites/Resume-Button-Hover.png" id="5_tupwc"]
+[ext_resource type="Texture2D" uid="uid://b6wd65xagr7h" path="res://UI/HUD/Sprites/Exit-Button.png" id="6_0yqs2"]
+[ext_resource type="Texture2D" uid="uid://ceq233s0nn535" path="res://UI/HUD/Sprites/Health-Progress-Bar.png" id="6_fc6vk"]
+[ext_resource type="Texture2D" uid="uid://dtml6aqn3rh38" path="res://UI/HUD/Sprites/Exit-Button-Pressed.png" id="7_jilsv"]
+[ext_resource type="Texture2D" uid="uid://cuql4me8bxyvu" path="res://UI/HUD/Sprites/Mini-Map.png" id="7_js031"]
+[ext_resource type="Script" uid="uid://crlwqmd72mpp7" path="res://UI/HUD/Scripts/HealthBar.gd" id="8_0ixox"]
+[ext_resource type="FontFile" uid="uid://cheysa4vb5fl1" path="res://Assets/Fonts/DungeonFont.ttf" id="8_12mv3"]
+[ext_resource type="Texture2D" uid="uid://gsn5yqcfaq7v" path="res://UI/HUD/Sprites/Exit-Button-Hover.png" id="8_nyy26"]
+[ext_resource type="Script" uid="uid://mkckofcxrmbq" path="res://UI/HUD/Scripts/BiscuitCounter.gd" id="9_re8gl"]
+[ext_resource type="Texture2D" uid="uid://fqeofw5evg5m" path="res://UI/HUD/Sprites/Biscuit.png" id="9_y0r6v"]
+[ext_resource type="Script" uid="uid://cbya637xh8m05" path="res://UI/HUD/Scripts/PauseScreen.gd" id="11_ypk7t"]
+[ext_resource type="Script" uid="uid://biiogjtqm02am" path="res://UI/HUD/Scripts/GameOverScreen.gd" id="19_x8fyh"]
+
+[node name="HUD" type="Control" unique_id=553188333]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oxtlp")
+
+[node name="HUDElements" type="Control" parent="." unique_id=621761980]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Frame" type="TextureRect" parent="HUDElements" unique_id=958241280]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0qrok")
+stretch_mode = 3
+
+[node name="PauseButton" type="TextureButton" parent="HUDElements" unique_id=424886906]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 27.0
+offset_right = 44.0
+offset_bottom = 50.0
+texture_normal = ExtResource("2_sebbx")
+texture_pressed = ExtResource("3_pmt4y")
+texture_hover = ExtResource("4_rwbmi")
+stretch_mode = 3
+
+[node name="HealthBar" type="TextureProgressBar" parent="HUDElements" unique_id=1393469509]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 220.0
+offset_right = 111.0
+offset_bottom = 242.0
+value = 100.0
+texture_under = ExtResource("5_8q8ue")
+texture_progress = ExtResource("6_fc6vk")
+texture_progress_offset = Vector2(21, 10)
+script = ExtResource("8_0ixox")
+
+[node name="MiniMap" type="TextureRect" parent="HUDElements" unique_id=1702641722]
+layout_mode = 0
+offset_left = 371.0
+offset_top = 26.0
+offset_right = 461.0
+offset_bottom = 116.0
+texture = ExtResource("7_js031")
+stretch_mode = 3
+
+[node name="BiscuitCounter" type="HBoxContainer" parent="HUDElements" unique_id=1295554947]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 39.0
+offset_right = 365.0
+offset_bottom = 58.0
+alignment = 2
+script = ExtResource("9_re8gl")
+
+[node name="Label" type="Label" parent="HUDElements/BiscuitCounter" unique_id=784773772]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996078, 0.74902, 0.298039, 1)
+theme_override_fonts/font = ExtResource("8_12mv3")
+theme_override_font_sizes/font_size = 16
+text = "x000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Texture" type="TextureRect" parent="HUDElements/BiscuitCounter" unique_id=1681516175]
+layout_mode = 2
+texture = ExtResource("9_y0r6v")
+stretch_mode = 3
+
+[node name="PauseScreen" type="CanvasLayer" parent="." unique_id=209023608]
+process_mode = 2
+visible = false
+script = ExtResource("11_ypk7t")
+
+[node name="Background" type="TextureRect" parent="PauseScreen" unique_id=633222582]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rlw8d")
+stretch_mode = 3
+
+[node name="Frame" type="TextureRect" parent="PauseScreen" unique_id=422113939]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0qrok")
+stretch_mode = 3
+
+[node name="Resume" type="TextureButton" parent="PauseScreen" unique_id=1109969050]
+offset_left = 176.0
+offset_top = 71.0
+offset_right = 304.0
+offset_bottom = 119.0
+texture_normal = ExtResource("3_ig0ax")
+texture_pressed = ExtResource("4_p4ebc")
+texture_hover = ExtResource("5_tupwc")
+stretch_mode = 3
+
+[node name="Exit" type="TextureButton" parent="PauseScreen" unique_id=498732113]
+offset_left = 192.0
+offset_top = 151.0
+offset_right = 288.0
+offset_bottom = 199.0
+texture_normal = ExtResource("6_0yqs2")
+texture_pressed = ExtResource("7_jilsv")
+texture_hover = ExtResource("8_nyy26")
+
+[node name="GameOverScreen" type="CanvasLayer" parent="." unique_id=1903480049]
+process_mode = 2
+visible = false
+script = ExtResource("19_x8fyh")
+
+[node name="Background" type="TextureRect" parent="GameOverScreen" unique_id=192844478]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_q334j")
+stretch_mode = 3
+
+[node name="Frame" type="TextureRect" parent="GameOverScreen" unique_id=336670928]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0qrok")
+stretch_mode = 3
+
+[connection signal="pressed" from="HUDElements/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="PauseScreen/Resume" to="PauseScreen" method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseScreen/Exit" to="PauseScreen" method="_on_exit_pressed"]

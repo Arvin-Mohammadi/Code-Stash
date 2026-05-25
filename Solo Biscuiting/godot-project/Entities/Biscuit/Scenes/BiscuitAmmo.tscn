@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://gqq46y2asqoo"]
+
+[ext_resource type="Script" path="res://Entities/Biscuit/Scripts/BiscuitAmmo.gd" id="1_13ghu"]
+[ext_resource type="Texture2D" uid="uid://hjo1fyojebat" path="res://Entities/Biscuit/Sprites/Biscuit-Throwable.png" id="1_rvuh8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lrg7"]
+size = Vector2(8, 10)
+
+[node name="BiscuitAmmo" type="Area2D" node_paths=PackedStringArray("raycast")]
+script = ExtResource("1_13ghu")
+raycast = NodePath("RayCast")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2lrg7")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_rvuh8")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="RayCast" type="RayCast2D" parent="."]
+target_position = Vector2(0, -50)
+hit_from_inside = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
