@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b851y6tfvdvgo"]
+
+[ext_resource type="Texture2D" uid="uid://daqumsfniubw1" path="res://Assets/ui/level_select_frame_128.png" id="1_3r2e7"]
+[ext_resource type="Texture2D" uid="uid://dwn6en4bjafyy" path="res://Assets/ui/level_select_frame_select_128.png" id="2_anpwf"]
+[ext_resource type="Texture2D" uid="uid://b58uokiq7psud" path="res://Assets/ui/level_select_frame_hover_128.png" id="3_uqdhg"]
+[ext_resource type="LabelSettings" uid="uid://dw6fl0tt0fhbi" path="res://Resources/LabelWhite48.tres" id="4_anpwf"]
+[ext_resource type="Script" uid="uid://uh2o5uhuerqq" path="res://Scenes/LevelButton/LevelButton.gd" id="4_ufld2"]
+[ext_resource type="Script" uid="uid://co42aul2yrt32" path="res://Classes/LevelSetting.gd" id="5_0iohd"]
+
+[sub_resource type="Resource" id="Resource_ssxc0"]
+script = ExtResource("5_0iohd")
+metadata/_custom_type_script = "uid://co42aul2yrt32"
+
+[node name="LevelButton" type="TextureButton" unique_id=27966745]
+offset_right = 128.0
+offset_bottom = 128.0
+texture_normal = ExtResource("1_3r2e7")
+texture_pressed = ExtResource("2_anpwf")
+texture_hover = ExtResource("3_uqdhg")
+script = ExtResource("4_ufld2")
+level_setting = SubResource("Resource_ssxc0")
+
+[node name="Label" type="Label" parent="." unique_id=387134448]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "0x0"
+label_settings = ExtResource("4_anpwf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

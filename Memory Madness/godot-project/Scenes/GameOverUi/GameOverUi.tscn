@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dg6owic6fyyvr"]
+
+[ext_resource type="Script" uid="uid://6bbbm327cg68" path="res://Scenes/GameOverUi/GameOverUi.gd" id="1_8nicn"]
+[ext_resource type="FontFile" uid="uid://cgvk11l8lignh" path="res://Assets/fonts/LuckiestGuy-Regular.ttf" id="2_8nicn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8nicn"]
+content_margin_left = 32.0
+content_margin_top = 32.0
+content_margin_right = 32.0
+content_margin_bottom = 32.0
+bg_color = Color(0.07, 0.035886664, 0.0224, 0.72156864)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 0.8509804, 0.28235295, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_j2od3"]
+font = ExtResource("2_8nicn")
+font_size = 96
+font_color = Color(1, 0.8509804, 0.28235295, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mdbud"]
+font = ExtResource("2_8nicn")
+font_size = 32
+font_color = Color(1, 0.8, 0, 1)
+
+[node name="GameOverUi" type="PanelContainer" unique_id=1223737057]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8nicn")
+script = ExtResource("1_8nicn")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=156782903]
+layout_mode = 2
+
+[node name="GameOver" type="Label" parent="VBoxContainer" unique_id=1922686699]
+layout_mode = 2
+text = "YOU WIN!"
+label_settings = SubResource("LabelSettings_j2od3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Moves" type="Label" parent="VBoxContainer" unique_id=1870909203]
+layout_mode = 2
+text = "You Took 9999 Moves"
+label_settings = SubResource("LabelSettings_mdbud")
+horizontal_alignment = 1
+vertical_alignment = 1

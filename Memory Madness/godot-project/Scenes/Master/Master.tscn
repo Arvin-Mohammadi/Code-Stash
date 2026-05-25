@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bxxekj6faa77a"]
+
+[ext_resource type="Script" uid="uid://brieatah5lbeh" path="res://Scenes/Master/Master.gd" id="1_1t0lv"]
+[ext_resource type="Texture2D" uid="uid://bwqn55ww4rkf2" path="res://Assets/images/backgroundEmpty.png" id="1_h6g34"]
+[ext_resource type="PackedScene" uid="uid://bs1x6v1m5k1vs" path="res://Scenes/Main/Main.tscn" id="2_o4rt4"]
+[ext_resource type="PackedScene" uid="uid://bwliesedvreqm" path="res://Scenes/Game/Game.tscn" id="3_7tgqy"]
+[ext_resource type="PackedScene" uid="uid://dp8enpk2y0a5w" path="res://Scenes/AudioManager/AudioManager.tscn" id="5_qemos"]
+
+[node name="Master" type="Control" unique_id=1305369004]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1t0lv")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=978205292]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_h6g34")
+expand_mode = 1
+
+[node name="Main" parent="." unique_id=710429519 instance=ExtResource("2_o4rt4")]
+z_index = 2
+layout_mode = 1
+
+[node name="Game" parent="." unique_id=99692751 instance=ExtResource("3_7tgqy")]
+visible = false
+layout_mode = 1
+
+[node name="AudioManager" parent="." unique_id=1690946239 instance=ExtResource("5_qemos")]

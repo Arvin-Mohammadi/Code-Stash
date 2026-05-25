@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://bs1x6v1m5k1vs"]
+
+[ext_resource type="LabelSettings" uid="uid://ma2egrjlmte5" path="res://Resources/LabelTitle.tres" id="1_i3fi7"]
+[ext_resource type="PackedScene" uid="uid://b851y6tfvdvgo" path="res://Scenes/LevelButton/LevelButton.tscn" id="2_i3fi7"]
+[ext_resource type="Script" uid="uid://co42aul2yrt32" path="res://Classes/LevelSetting.gd" id="3_i3fi7"]
+[ext_resource type="PackedScene" uid="uid://cdhj3vqmxq5n6" path="res://Scenes/FrontSprite/FrontSprite.tscn" id="3_o8wgc"]
+
+[sub_resource type="Resource" id="Resource_o8wgc"]
+script = ExtResource("3_i3fi7")
+rows = 3
+cols = 4
+metadata/_custom_type_script = "uid://co42aul2yrt32"
+
+[sub_resource type="Resource" id="Resource_i3fi7"]
+script = ExtResource("3_i3fi7")
+rows = 4
+cols = 4
+metadata/_custom_type_script = "uid://co42aul2yrt32"
+
+[sub_resource type="Resource" id="Resource_w20t6"]
+script = ExtResource("3_i3fi7")
+rows = 4
+cols = 6
+metadata/_custom_type_script = "uid://co42aul2yrt32"
+
+[sub_resource type="Resource" id="Resource_aw1lf"]
+script = ExtResource("3_i3fi7")
+rows = 5
+cols = 6
+metadata/_custom_type_script = "uid://co42aul2yrt32"
+
+[sub_resource type="Resource" id="Resource_5s61s"]
+script = ExtResource("3_i3fi7")
+rows = 6
+cols = 7
+metadata/_custom_type_script = "uid://co42aul2yrt32"
+
+[node name="Main" type="Control" unique_id=710429519]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1094236179]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.26, 0.445, 1, 0.45882353)
+
+[node name="VContainer" type="VBoxContainer" parent="." unique_id=1491250786]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -411.5
+offset_top = -240.5
+offset_right = 411.5
+offset_bottom = 240.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 96
+
+[node name="Title" type="Label" parent="VContainer" unique_id=572822080]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Memory Madness"
+label_settings = ExtResource("1_i3fi7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HContainerButtons" type="HBoxContainer" parent="VContainer" unique_id=1521533156]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="LevelButton" parent="VContainer/HContainerButtons" unique_id=27966745 instance=ExtResource("2_i3fi7")]
+layout_mode = 2
+
+[node name="LevelButton2" parent="VContainer/HContainerButtons" unique_id=531013809 instance=ExtResource("2_i3fi7")]
+layout_mode = 2
+level_setting = SubResource("Resource_o8wgc")
+
+[node name="LevelButton3" parent="VContainer/HContainerButtons" unique_id=1403533179 instance=ExtResource("2_i3fi7")]
+layout_mode = 2
+level_setting = SubResource("Resource_i3fi7")
+
+[node name="LevelButton4" parent="VContainer/HContainerButtons" unique_id=945041912 instance=ExtResource("2_i3fi7")]
+layout_mode = 2
+level_setting = SubResource("Resource_w20t6")
+
+[node name="LevelButton5" parent="VContainer/HContainerButtons" unique_id=1256331494 instance=ExtResource("2_i3fi7")]
+layout_mode = 2
+level_setting = SubResource("Resource_aw1lf")
+
+[node name="LevelButton6" parent="VContainer/HContainerButtons" unique_id=455864103 instance=ExtResource("2_i3fi7")]
+layout_mode = 2
+level_setting = SubResource("Resource_5s61s")
+
+[node name="HContainerSprites" type="HBoxContainer" parent="VContainer" unique_id=949504430]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 96
+
+[node name="FrontSprite" parent="VContainer/HContainerSprites" unique_id=333287897 instance=ExtResource("3_o8wgc")]
+layout_mode = 2
+
+[node name="FrontSprite2" parent="VContainer/HContainerSprites" unique_id=1405237129 instance=ExtResource("3_o8wgc")]
+layout_mode = 2
+
+[node name="FrontSprite3" parent="VContainer/HContainerSprites" unique_id=576681256 instance=ExtResource("3_o8wgc")]
+layout_mode = 2
+
+[node name="FrontSprite4" parent="VContainer/HContainerSprites" unique_id=392483821 instance=ExtResource("3_o8wgc")]
+layout_mode = 2

@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://bwliesedvreqm"]
+
+[ext_resource type="Script" uid="uid://cxcqq1fjksdwy" path="res://Scenes/Game/Game.gd" id="1_3k6gv"]
+[ext_resource type="LabelSettings" uid="uid://bnrivf73l5gum" path="res://Resources/LabelWhite24.tres" id="2_xbxml"]
+[ext_resource type="Texture2D" uid="uid://c5sg10ux4bnqk" path="res://Assets/ui/blue_button00.png" id="3_y3kpf"]
+[ext_resource type="Texture2D" uid="uid://x2c11ohulhnx" path="res://Assets/ui/green_button00.png" id="4_3k6gv"]
+[ext_resource type="Texture2D" uid="uid://cn5gjhrhrgcaa" path="res://Assets/ui/yellow_button00.png" id="5_1q8bt"]
+[ext_resource type="PackedScene" uid="uid://3srthluqm3d8" path="res://Scenes/ScoreManager/ScoreManager.tscn" id="6_3k6gv"]
+[ext_resource type="PackedScene" uid="uid://dg6owic6fyyvr" path="res://Scenes/GameOverUi/GameOverUi.tscn" id="7_1q8bt"]
+
+[node name="Game" type="Control" unique_id=99692751]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3k6gv")
+
+[node name="HContainer" type="HBoxContainer" parent="." unique_id=1146035070]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Divider2" type="Control" parent="HContainer" unique_id=488605600]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GridContainer" type="GridContainer" parent="HContainer" unique_id=110769583]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 4
+
+[node name="Divider3" type="Control" parent="HContainer" unique_id=1772867241]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VContainer" type="VBoxContainer" parent="HContainer" unique_id=1229276634]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Moves" type="HBoxContainer" parent="HContainer/VContainer" unique_id=2029623877]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HContainer/VContainer/Moves" unique_id=1158449724]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Moves"
+label_settings = ExtResource("2_xbxml")
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="HContainer/VContainer/Moves" unique_id=1720284559]
+layout_mode = 2
+text = "0000"
+label_settings = ExtResource("2_xbxml")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Pairs" type="HBoxContainer" parent="HContainer/VContainer" unique_id=1662888981]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HContainer/VContainer/Pairs" unique_id=849913446]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pairs"
+label_settings = ExtResource("2_xbxml")
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="HContainer/VContainer/Pairs" unique_id=970988006]
+layout_mode = 2
+text = "10 / 10"
+label_settings = ExtResource("2_xbxml")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="HContainer/VContainer" unique_id=240446950]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="ExitButton" type="TextureButton" parent="HContainer/VContainer" unique_id=1527349631]
+layout_mode = 2
+texture_normal = ExtResource("3_y3kpf")
+texture_pressed = ExtResource("4_3k6gv")
+texture_hover = ExtResource("5_1q8bt")
+
+[node name="Label" type="Label" parent="HContainer/VContainer/ExitButton" unique_id=1128518379]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -12.5
+offset_right = 23.0
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit"
+label_settings = ExtResource("2_xbxml")
+
+[node name="Divider" type="Control" parent="HContainer" unique_id=1935802009]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScoreManager" parent="." unique_id=1264135909 instance=ExtResource("6_3k6gv")]
+
+[node name="MContainer" type="MarginContainer" parent="." unique_id=127758618]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 64
+
+[node name="GameOverUi" parent="MContainer" unique_id=1223737057 instance=ExtResource("7_1q8bt")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[connection signal="pressed" from="HContainer/VContainer/ExitButton" to="." method="_on_exit_button_pressed"]
