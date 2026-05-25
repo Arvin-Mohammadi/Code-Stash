@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1jm3ipv7yqi1"]
+
+[ext_resource type="Texture2D" uid="uid://d1amxys348bvl" path="res://art/pause-screen/pause-button.png" id="1_2sj16"]
+[ext_resource type="Script" path="res://ui/pause_menu.gd" id="1_svlfl"]
+[ext_resource type="PackedScene" uid="uid://c2jswxkyl6t5m" path="res://sound/sound_effects/tscn/click_sound#1.tscn" id="3_1y68f"]
+[ext_resource type="PackedScene" uid="uid://bkd5poie4ir6l" path="res://sound/sound_effects/tscn/click_sound#2.tscn" id="4_stghw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scxo1"]
+bg_color = Color(0.0509804, 0.168627, 0.270588, 0.847059)
+
+[sub_resource type="ImageTexture" id="ImageTexture_2i00n"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_svlfl")
+
+[node name="ScreenContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScreenContainerPanel" type="Panel" parent="ScreenContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_scxo1")
+
+[node name="ButtonContainer" type="MarginContainer" parent="ScreenContainer/ScreenContainerPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseButton" type="TextureButton" parent="ScreenContainer/ScreenContainerPanel/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_2sj16")
+texture_pressed = SubResource("ImageTexture_2i00n")
+
+[node name="ClickSound#1" parent="." instance=ExtResource("3_1y68f")]
+
+[node name="ClickSound#2" parent="." instance=ExtResource("4_stghw")]
+
+[connection signal="mouse_entered" from="ScreenContainer/ScreenContainerPanel/ButtonContainer/PauseButton" to="." method="_on_pause_button_mouse_entered"]
+[connection signal="pressed" from="ScreenContainer/ScreenContainerPanel/ButtonContainer/PauseButton" to="." method="_on_pause_button_pressed"]

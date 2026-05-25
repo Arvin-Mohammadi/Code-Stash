@@ -1,0 +1,119 @@
+[gd_scene load_steps=18 format=3 uid="uid://b4gx4yhj5780q"]
+
+[ext_resource type="Texture2D" uid="uid://rqer2ybuc8q3" path="res://art/menu/black-screen.png" id="1_34hmq"]
+[ext_resource type="Script" path="res://levels/level1/level_1.gd" id="1_x5e5p"]
+[ext_resource type="Texture2D" uid="uid://dwrttgrmhqlne" path="res://art/level-1/foreground-screen.png" id="2_72tyw"]
+[ext_resource type="Texture2D" uid="uid://x80g2qedpaix" path="res://art/level-1/conveyor-belt.png" id="3_d7a5o"]
+[ext_resource type="Texture2D" uid="uid://70sgxhcr7pu6" path="res://art/level-1/frame.png" id="3_wxa6t"]
+[ext_resource type="Texture2D" uid="uid://x0hegkfgwa4f" path="res://art/level-1/ui/holder.png" id="5_63duq"]
+[ext_resource type="AudioStream" uid="uid://bawotdkyk1lo" path="res://sound/music/wav/main-theme.wav" id="5_bhi5e"]
+[ext_resource type="Texture2D" uid="uid://bk7i0mo3gl5tn" path="res://art/level-1/ui/music-button.png" id="6_vfiqk"]
+[ext_resource type="Texture2D" uid="uid://dlotili3c3fu" path="res://art/level-1/ui/pasuse-button.png" id="7_f8gsl"]
+[ext_resource type="Texture2D" uid="uid://bve1wys7qkkfl" path="res://art/level-1/ui/quit-button.png" id="8_7pba8"]
+[ext_resource type="FontFile" uid="uid://c2hxrj828oe6b" path="res://font/Minecraftia-Regular.ttf" id="11_e05hq"]
+[ext_resource type="PackedScene" uid="uid://c2jswxkyl6t5m" path="res://sound/sound_effects/tscn/click_sound#1.tscn" id="11_udyu4"]
+[ext_resource type="PackedScene" uid="uid://bkd5poie4ir6l" path="res://sound/sound_effects/tscn/click_sound#2.tscn" id="12_ypir3"]
+[ext_resource type="PackedScene" uid="uid://b1jm3ipv7yqi1" path="res://ui/pause_menu.tscn" id="13_kefsn"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_4nhn1"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_smxt8"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_3422v"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_x5e5p")
+
+[node name="Background" type="Node2D" parent="."]
+z_index = -1
+
+[node name="BlackScreen" type="Sprite2D" parent="Background"]
+position = Vector2(80, 45)
+texture = ExtResource("1_34hmq")
+
+[node name="Foreground" type="Node2D" parent="."]
+
+[node name="Foreground-screen" type="Sprite2D" parent="Foreground"]
+position = Vector2(80, 45)
+texture = ExtResource("2_72tyw")
+
+[node name="ConveyorBelt4" type="Sprite2D" parent="Foreground"]
+position = Vector2(80, 48)
+texture = ExtResource("3_d7a5o")
+
+[node name="ConveyorBelt3" type="Sprite2D" parent="Foreground"]
+position = Vector2(80, 56)
+texture = ExtResource("3_d7a5o")
+
+[node name="ConveyorBelt2" type="Sprite2D" parent="Foreground"]
+position = Vector2(80, 67)
+texture = ExtResource("3_d7a5o")
+
+[node name="ConveyorBelt" type="Sprite2D" parent="Foreground"]
+position = Vector2(80, 79)
+texture = ExtResource("3_d7a5o")
+
+[node name="Overlay" type="Node2D" parent="."]
+z_index = 1
+
+[node name="Frame" type="Sprite2D" parent="Overlay"]
+position = Vector2(80, 45)
+texture = ExtResource("3_wxa6t")
+
+[node name="UI-Holder" type="Sprite2D" parent="Overlay"]
+position = Vector2(140, 14)
+texture = ExtResource("5_63duq")
+offset = Vector2(0.5, 0)
+
+[node name="Music" type="TextureButton" parent="Overlay/UI-Holder"]
+offset_left = -12.0
+offset_top = -4.0
+offset_right = -3.0
+offset_bottom = 4.0
+texture_normal = ExtResource("6_vfiqk")
+texture_pressed = SubResource("ImageTexture_4nhn1")
+
+[node name="Pause" type="TextureButton" parent="Overlay/UI-Holder"]
+offset_left = -2.0
+offset_top = -4.0
+offset_right = 6.0
+offset_bottom = 4.0
+texture_normal = ExtResource("7_f8gsl")
+texture_pressed = SubResource("ImageTexture_smxt8")
+
+[node name="Quit" type="TextureButton" parent="Overlay/UI-Holder"]
+offset_left = 7.0
+offset_top = -4.0
+offset_right = 15.0
+offset_bottom = 4.0
+texture_normal = ExtResource("8_7pba8")
+texture_pressed = SubResource("ImageTexture_3422v")
+
+[node name="Score" type="Label" parent="Overlay"]
+offset_left = 40.0
+offset_top = 7.0
+offset_right = 120.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(1, 0.666667, 0.368627, 1)
+theme_override_fonts/font = ExtResource("11_e05hq")
+text = "0"
+horizontal_alignment = 1
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_bhi5e")
+autoplay = true
+
+[node name="ClickSound#1" parent="." instance=ExtResource("11_udyu4")]
+
+[node name="ClickSound#2" parent="." instance=ExtResource("12_ypir3")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("13_kefsn")]
+process_mode = 3
+visible = false
+
+[connection signal="mouse_entered" from="Overlay/UI-Holder/Music" to="." method="_on_music_mouse_entered"]
+[connection signal="pressed" from="Overlay/UI-Holder/Music" to="." method="_on_music_pressed"]
+[connection signal="mouse_entered" from="Overlay/UI-Holder/Pause" to="." method="_on_pause_mouse_entered"]
+[connection signal="pressed" from="Overlay/UI-Holder/Pause" to="." method="_on_pause_pressed"]
+[connection signal="mouse_entered" from="Overlay/UI-Holder/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="Overlay/UI-Holder/Quit" to="." method="_on_quit_pressed"]

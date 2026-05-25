@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://c88nton8g2g5t"]
+
+[ext_resource type="PackedScene" uid="uid://c2jswxkyl6t5m" path="res://sound/sound_effects/tscn/click_sound#1.tscn" id="1_4j6i2"]
+[ext_resource type="Script" path="res://ui/start_menu.gd" id="1_10kww"]
+[ext_resource type="PackedScene" uid="uid://b4gx4yhj5780q" path="res://levels/level1/level_1.tscn" id="2_4unxw"]
+[ext_resource type="PackedScene" uid="uid://bkd5poie4ir6l" path="res://sound/sound_effects/tscn/click_sound#2.tscn" id="2_tyjro"]
+[ext_resource type="Texture2D" uid="uid://b2u148gawvi53" path="res://art/menu/start-button.png" id="3_dqvle"]
+[ext_resource type="Texture2D" uid="uid://bfxbqwmrtyo0u" path="res://art/menu/start-button-pressed.png" id="4_7fawn"]
+[ext_resource type="Texture2D" uid="uid://splvelxy0apn" path="res://art/menu/pattern.png" id="5_7gi7a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0a7q"]
+bg_color = Color(0.0509804, 0.168627, 0.270588, 1)
+
+[sub_resource type="ImageTexture" id="ImageTexture_g6rx0"]
+
+[node name="StartMenu" type="CanvasLayer"]
+script = ExtResource("1_10kww")
+next_level = ExtResource("2_4unxw")
+
+[node name="MenuContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="MenuContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c0a7q")
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = -45.0
+offset_right = 61.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartContainer" type="MarginContainer" parent="MenuContainer/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="StartButton" type="TextureButton" parent="MenuContainer/Panel/MarginContainer/StartContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_dqvle")
+texture_pressed = SubResource("ImageTexture_g6rx0")
+texture_hover = ExtResource("4_7fawn")
+stretch_mode = 3
+
+[node name="Pattern Container" type="MarginContainer" parent="MenuContainer/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Pattern" type="TextureRect" parent="MenuContainer/Panel/MarginContainer/Pattern Container"]
+layout_mode = 2
+texture = ExtResource("5_7gi7a")
+
+[node name="ClickSound#1" parent="." instance=ExtResource("1_4j6i2")]
+
+[node name="ClickSound#2" parent="." instance=ExtResource("2_tyjro")]
+
+[connection signal="mouse_entered" from="MenuContainer/Panel/MarginContainer/StartContainer/StartButton" to="." method="_on_start_button_mouse_entered"]
+[connection signal="pressed" from="MenuContainer/Panel/MarginContainer/StartContainer/StartButton" to="." method="_on_start_button_pressed"]

@@ -1,0 +1,191 @@
+[gd_scene format=3 uid="uid://b4gx4yhj5780q"]
+
+[ext_resource type="Texture2D" uid="uid://rqer2ybuc8q3" path="res://art/menu/black-screen.png" id="1_34hmq"]
+[ext_resource type="Script" uid="uid://c4kk1d0j7bjm8" path="res://levels/level1/level_1.gd" id="1_x5e5p"]
+[ext_resource type="Texture2D" uid="uid://dwrttgrmhqlne" path="res://art/level-1/foreground-screen.png" id="2_72tyw"]
+[ext_resource type="Texture2D" uid="uid://x80g2qedpaix" path="res://art/level-1/conveyor-belt.png" id="3_d7a5o"]
+[ext_resource type="Texture2D" uid="uid://70sgxhcr7pu6" path="res://art/level-1/frame.png" id="3_wxa6t"]
+[ext_resource type="Texture2D" uid="uid://x0hegkfgwa4f" path="res://art/level-1/ui/holder.png" id="5_63duq"]
+[ext_resource type="AudioStream" uid="uid://bawotdkyk1lo" path="res://sound/music/wav/main-theme.wav" id="5_bhi5e"]
+[ext_resource type="Texture2D" uid="uid://bk7i0mo3gl5tn" path="res://art/level-1/ui/music-button.png" id="6_vfiqk"]
+[ext_resource type="Texture2D" uid="uid://dlotili3c3fu" path="res://art/level-1/ui/pasuse-button.png" id="7_f8gsl"]
+[ext_resource type="Texture2D" uid="uid://bve1wys7qkkfl" path="res://art/level-1/ui/quit-button.png" id="8_7pba8"]
+[ext_resource type="Texture2D" uid="uid://67mfp134imky" path="res://art/level-1/left-hand-side-pattern.png" id="11_0mieq"]
+[ext_resource type="Texture2D" uid="uid://cegitlnwl05e8" path="res://art/level-1/ui/outer-frame.png" id="11_b4cnr"]
+[ext_resource type="FontFile" uid="uid://c2hxrj828oe6b" path="res://font/Minecraftia-Regular.ttf" id="11_e05hq"]
+[ext_resource type="PackedScene" uid="uid://c2jswxkyl6t5m" path="res://sound/sound_effects/tscn/click_sound#1.tscn" id="11_udyu4"]
+[ext_resource type="PackedScene" uid="uid://bkd5poie4ir6l" path="res://sound/sound_effects/tscn/click_sound#2.tscn" id="12_ypir3"]
+[ext_resource type="PackedScene" uid="uid://b1jm3ipv7yqi1" path="res://ui/pause_menu.tscn" id="13_kefsn"]
+[ext_resource type="Texture2D" uid="uid://bkg2uolbkkwy7" path="res://art/level-1/bots/1.png" id="13_wiluc"]
+[ext_resource type="Texture2D" uid="uid://dr3danqvw2c3n" path="res://art/level-1/bots/2.png" id="14_4gav5"]
+[ext_resource type="Texture2D" uid="uid://q3qygbtdmqk4" path="res://art/level-1/bots/3.png" id="15_yxvkr"]
+[ext_resource type="Texture2D" uid="uid://bdepr6tywereb" path="res://art/level-1/bots/4.png" id="16_ecv2f"]
+[ext_resource type="Texture2D" uid="uid://dhjhwsutammiw" path="res://art/level-1/upgrade-buttons/1.png" id="17_bmu3j"]
+[ext_resource type="Texture2D" uid="uid://dowqiamn1g0xd" path="res://art/level-1/upgrade-buttons/2.png" id="18_0wdaq"]
+[ext_resource type="Texture2D" uid="uid://cc20q7dc5y405" path="res://art/level-1/upgrade-buttons/3.png" id="19_686kv"]
+[ext_resource type="Texture2D" uid="uid://bp081ytbxl7f3" path="res://art/level-1/upgrade-buttons/4.png" id="20_dv7fo"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_4nhn1"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_smxt8"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_3422v"]
+
+[node name="Level1" type="Node2D" unique_id=1060470302]
+script = ExtResource("1_x5e5p")
+
+[node name="Background" type="Node2D" parent="." unique_id=1792610411]
+z_index = -1
+
+[node name="BlackScreen" type="Sprite2D" parent="Background" unique_id=198943913]
+position = Vector2(80, 45)
+texture = ExtResource("1_34hmq")
+
+[node name="Foreground" type="Node2D" parent="." unique_id=854450928]
+
+[node name="Foreground-screen" type="Sprite2D" parent="Foreground" unique_id=655850201]
+position = Vector2(80, 45)
+texture = ExtResource("2_72tyw")
+
+[node name="ConveyorBelt4" type="Sprite2D" parent="Foreground" unique_id=1373060945]
+position = Vector2(80, 48)
+texture = ExtResource("3_d7a5o")
+
+[node name="ConveyorBelt3" type="Sprite2D" parent="Foreground" unique_id=243980214]
+position = Vector2(80, 56)
+texture = ExtResource("3_d7a5o")
+
+[node name="ConveyorBelt2" type="Sprite2D" parent="Foreground" unique_id=1689658430]
+position = Vector2(80, 67)
+texture = ExtResource("3_d7a5o")
+
+[node name="ConveyorBelt" type="Sprite2D" parent="Foreground" unique_id=531536611]
+position = Vector2(80, 79)
+texture = ExtResource("3_d7a5o")
+
+[node name="Overlay" type="Node2D" parent="." unique_id=2016996384]
+z_index = 1
+
+[node name="Frame" type="Sprite2D" parent="Overlay" unique_id=752976062]
+position = Vector2(80, 45)
+texture = ExtResource("3_wxa6t")
+
+[node name="UI-Holder" type="Sprite2D" parent="Overlay" unique_id=570225027]
+position = Vector2(140, 14)
+texture = ExtResource("5_63duq")
+offset = Vector2(0.5, 0)
+
+[node name="Music" type="TextureButton" parent="Overlay/UI-Holder" unique_id=1130136718]
+offset_left = -12.0
+offset_top = -4.0
+offset_right = -3.0
+offset_bottom = 4.0
+texture_normal = ExtResource("6_vfiqk")
+texture_pressed = SubResource("ImageTexture_4nhn1")
+
+[node name="Pause" type="TextureButton" parent="Overlay/UI-Holder" unique_id=1371323973]
+offset_left = -2.0
+offset_top = -4.0
+offset_right = 6.0
+offset_bottom = 4.0
+texture_normal = ExtResource("7_f8gsl")
+texture_pressed = SubResource("ImageTexture_smxt8")
+
+[node name="Quit" type="TextureButton" parent="Overlay/UI-Holder" unique_id=1378359802]
+offset_left = 7.0
+offset_top = -4.0
+offset_right = 15.0
+offset_bottom = 4.0
+texture_normal = ExtResource("8_7pba8")
+texture_pressed = SubResource("ImageTexture_3422v")
+
+[node name="Score" type="Label" parent="Overlay" unique_id=1702989937]
+offset_left = 40.0
+offset_top = 7.0
+offset_right = 120.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(1, 0.666667, 0.368627, 1)
+theme_override_fonts/font = ExtResource("11_e05hq")
+text = "0"
+horizontal_alignment = 1
+
+[node name="Pattern" type="Sprite2D" parent="Overlay" unique_id=1691030549]
+position = Vector2(19, 45)
+texture = ExtResource("11_0mieq")
+
+[node name="Outer-frame" type="Sprite2D" parent="Overlay" unique_id=1890662209]
+position = Vector2(80, 45)
+texture = ExtResource("11_b4cnr")
+
+[node name="Bot1" type="Sprite2D" parent="Overlay" unique_id=611942356]
+visible = false
+position = Vector2(132, 68)
+texture = ExtResource("13_wiluc")
+
+[node name="Bot2" type="Sprite2D" parent="Overlay" unique_id=2136871463]
+visible = false
+position = Vector2(150, 56)
+texture = ExtResource("14_4gav5")
+
+[node name="Bot3" type="Sprite2D" parent="Overlay" unique_id=1813367490]
+visible = false
+position = Vector2(131, 43)
+texture = ExtResource("15_yxvkr")
+
+[node name="Bot4" type="Sprite2D" parent="Overlay" unique_id=1916516663]
+visible = false
+position = Vector2(144, 28)
+texture = ExtResource("16_ecv2f")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Overlay" unique_id=437307042]
+offset_left = 123.0
+offset_top = 80.0
+offset_right = 159.0
+offset_bottom = 87.0
+
+[node name="Upgrade1" type="TextureButton" parent="Overlay/HBoxContainer" unique_id=508775800]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("17_bmu3j")
+
+[node name="Upgrade2" type="TextureButton" parent="Overlay/HBoxContainer" unique_id=1251593366]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("18_0wdaq")
+
+[node name="Upgrade3" type="TextureButton" parent="Overlay/HBoxContainer" unique_id=1126567218]
+layout_mode = 2
+texture_normal = ExtResource("19_686kv")
+
+[node name="Upgrade4" type="TextureButton" parent="Overlay/HBoxContainer" unique_id=1867388623]
+layout_mode = 2
+texture_normal = ExtResource("20_dv7fo")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=133779883]
+stream = ExtResource("5_bhi5e")
+autoplay = true
+
+[node name="ClickSound#1" parent="." unique_id=1773358172 instance=ExtResource("11_udyu4")]
+
+[node name="ClickSound#2" parent="." unique_id=1740830773 instance=ExtResource("12_ypir3")]
+
+[node name="PauseMenu" parent="." unique_id=1589215345 instance=ExtResource("13_kefsn")]
+process_mode = 3
+visible = false
+
+[connection signal="mouse_entered" from="Overlay/UI-Holder/Music" to="." method="_on_music_mouse_entered"]
+[connection signal="pressed" from="Overlay/UI-Holder/Music" to="." method="_on_music_pressed"]
+[connection signal="mouse_entered" from="Overlay/UI-Holder/Pause" to="." method="_on_pause_mouse_entered"]
+[connection signal="pressed" from="Overlay/UI-Holder/Pause" to="." method="_on_pause_pressed"]
+[connection signal="mouse_entered" from="Overlay/UI-Holder/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="Overlay/UI-Holder/Quit" to="." method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="Overlay/HBoxContainer/Upgrade1" to="." method="_on_upgrade_1_mouse_entered"]
+[connection signal="pressed" from="Overlay/HBoxContainer/Upgrade1" to="." method="_on_upgrade_1_pressed"]
+[connection signal="mouse_entered" from="Overlay/HBoxContainer/Upgrade2" to="." method="_on_upgrade_2_mouse_entered"]
+[connection signal="pressed" from="Overlay/HBoxContainer/Upgrade2" to="." method="_on_upgrade_2_pressed"]
+[connection signal="mouse_entered" from="Overlay/HBoxContainer/Upgrade3" to="." method="_on_upgrade_3_mouse_entered"]
+[connection signal="pressed" from="Overlay/HBoxContainer/Upgrade3" to="." method="_on_upgrade_3_pressed"]
+[connection signal="mouse_entered" from="Overlay/HBoxContainer/Upgrade4" to="." method="_on_upgrade_4_mouse_entered"]
+[connection signal="pressed" from="Overlay/HBoxContainer/Upgrade4" to="." method="_on_upgrade_4_pressed"]
