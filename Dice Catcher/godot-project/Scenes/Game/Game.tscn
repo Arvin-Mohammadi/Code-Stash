@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cqqmvjr3orfl1"]
+
+[ext_resource type="Texture2D" uid="uid://bnqno2nukke7k" path="res://Assets/GemBg.png" id="1_rdw05"]
+[ext_resource type="Script" uid="uid://brqrux3onpjed" path="res://Scenes/Game/Game.gd" id="1_xbxml"]
+[ext_resource type="PackedScene" uid="uid://b0t0xyuqpsivn" path="res://Scenes/Fox/Fox.tscn" id="3_xbxml"]
+[ext_resource type="FontFile" uid="uid://deeylcw8gls0s" path="res://Assets/LuckiestGuy-Regular.ttf" id="4_ln2h6"]
+[ext_resource type="AudioStream" uid="uid://co1w3nhqddboi" path="res://Assets/tetris.mp3" id="5_y3kpf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y3kpf"]
+font = ExtResource("4_ln2h6")
+font_size = 50
+outline_size = 5
+outline_color = Color(0.11764706, 0.11764706, 0.11764706, 1)
+shadow_size = 8
+shadow_color = Color(0.11764706, 0.11764706, 0.06666667, 0.827451)
+
+[node name="Game" type="Node2D" unique_id=487935742]
+script = ExtResource("1_xbxml")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1372871687]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_rdw05")
+centered = false
+
+[node name="DiceSpawnTimer" type="Timer" parent="." unique_id=1191153397]
+wait_time = 2.0
+autostart = true
+
+[node name="Fox" parent="." unique_id=1521530586 instance=ExtResource("3_xbxml")]
+z_index = 1
+position = Vector2(580, 563)
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1704253607]
+offset_left = 40.0
+offset_top = 28.0
+offset_right = 81.0
+offset_bottom = 51.0
+text = "0000"
+label_settings = SubResource("LabelSettings_y3kpf")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=729502859]
+stream = ExtResource("5_y3kpf")
+volume_db = -7.0
+autoplay = true
+parameters/looping = true
+
+[connection signal="point_scored" from="Fox" to="." method="_on_fox_point_scored"]
