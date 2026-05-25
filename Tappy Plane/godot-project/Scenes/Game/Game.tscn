@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://ch0cbsx05k47l"]
+
+[ext_resource type="PackedScene" uid="uid://3wwtajt2o4vk" path="res://Scenes/Tappy/Tappy.tscn" id="1_rdw05"]
+[ext_resource type="Script" uid="uid://hilxpsw68bwi" path="res://Scenes/Game/Game.gd" id="1_xbxml"]
+[ext_resource type="PackedScene" uid="uid://b30ebvb8w30uw" path="res://Scenes/Boundary/Boundary.tscn" id="2_gwu2e"]
+[ext_resource type="PackedScene" uid="uid://ywrh4yeh5asc" path="res://Scenes/GameUi/GameUi.tscn" id="4_ln2h6"]
+[ext_resource type="PackedScene" uid="uid://bn0jma5cw7cf0" path="res://Scenes/ParallexBackground/ParallexBackground.tscn" id="5_y3kpf"]
+
+[node name="Game" type="Node2D" unique_id=256181811]
+script = ExtResource("1_xbxml")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=540838079]
+
+[node name="GameUI" parent="CanvasLayer" unique_id=435625867 instance=ExtResource("4_ln2h6")]
+
+[node name="Tappy" parent="." unique_id=1427919116 instance=ExtResource("1_rdw05")]
+position = Vector2(72, 479)
+
+[node name="Boundary" parent="." unique_id=1549062589 instance=ExtResource("2_gwu2e")]
+
+[node name="UpperSpawn" type="Marker2D" parent="." unique_id=335086555]
+position = Vector2(530, 280)
+
+[node name="LowerSpawn" type="Marker2D" parent="." unique_id=402294256]
+position = Vector2(530, 550)
+
+[node name="PipesHolder" type="Node2D" parent="." unique_id=600482230]
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=632870414]
+wait_time = 1.5
+autostart = true
+
+[node name="ParallexBackground" parent="." unique_id=1923749150 instance=ExtResource("5_y3kpf")]
+z_index = -10
+scale = Vector2(0.8, 0.8)
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

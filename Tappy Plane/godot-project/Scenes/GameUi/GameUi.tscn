@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://ywrh4yeh5asc"]
+
+[ext_resource type="FontFile" uid="uid://bo7uql7wv4es0" path="res://Assets/fonts/LuckiestGuy-Regular.ttf" id="1_08tb3"]
+[ext_resource type="Script" uid="uid://cpafcho4fpcn4" path="res://Scenes/GameUi/GameUi.gd" id="1_anb74"]
+[ext_resource type="AudioStream" uid="uid://dotpb8gwb8n7v" path="res://Assets/audio/game_over.wav" id="3_anolp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vw8kl"]
+font = ExtResource("1_08tb3")
+font_size = 32
+font_color = Color(1, 0, 0.5411765, 1)
+outline_size = 25
+outline_color = Color(0.3600336, 1.8049032e-07, 0.17953372, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_08tb3"]
+font = ExtResource("1_08tb3")
+font_size = 48
+font_color = Color(1, 1, 0.7764706, 1)
+outline_size = 25
+outline_color = Color(0.3600336, 1.8049032e-07, 0.17953372, 1)
+
+[node name="GameUi" type="Control" unique_id=435625867]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_anb74")
+
+[node name="Container" type="MarginContainer" parent="." unique_id=1327947542]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Score" type="Label" parent="Container" unique_id=111681422]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "0000"
+label_settings = SubResource("LabelSettings_vw8kl")
+
+[node name="GameOver" type="Label" parent="Container" unique_id=1416460198]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Game Over!!"
+label_settings = SubResource("LabelSettings_08tb3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PressSpace" type="Label" parent="Container" unique_id=888760472]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Press Space"
+label_settings = SubResource("LabelSettings_08tb3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sound" type="AudioStreamPlayer" parent="." unique_id=1411131836]
+stream = ExtResource("3_anolp")
+
+[node name="PressSpaceTimer" type="Timer" parent="." unique_id=1102110301]
+one_shot = true
+
+[connection signal="timeout" from="PressSpaceTimer" to="." method="_on_press_space_timer_timeout"]
