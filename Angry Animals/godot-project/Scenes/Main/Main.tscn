@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://bd1cp2il07ysw"]
+
+[ext_resource type="Texture2D" uid="uid://dn0pqvco45v0t" path="res://Assets/env/MainBG.png" id="1_p8rbg"]
+[ext_resource type="PackedScene" uid="uid://yhw2btmmadj1" path="res://Scenes/LevelButton/LevelButton.tscn" id="2_qtv3y"]
+[ext_resource type="AudioStream" uid="uid://v2klmpq7wifc" path="res://Assets/audio/birdsong.wav" id="3_cmk6n"]
+[ext_resource type="LabelSettings" uid="uid://bi0k4txkui7ta" path="res://Resources/LightBlueLabel96.tres" id="4_i3fi7"]
+
+[node name="Main" type="Control" unique_id=932204478]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="." unique_id=257071896]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_p8rbg")
+expand_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=781442101]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = -50.0
+offset_right = 154.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 64
+
+[node name="LevelButton" parent="HBoxContainer" unique_id=1666955329 instance=ExtResource("2_qtv3y")]
+layout_mode = 2
+
+[node name="LevelButton2" parent="HBoxContainer" unique_id=2095018760 instance=ExtResource("2_qtv3y")]
+layout_mode = 2
+level_number = 2
+
+[node name="LevelButton3" parent="HBoxContainer" unique_id=542815912 instance=ExtResource("2_qtv3y")]
+layout_mode = 2
+level_number = 3
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1176308006]
+stream = ExtResource("3_cmk6n")
+autoplay = true
+
+[node name="Label" type="Label" parent="." unique_id=1358242463]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -354.0
+offset_top = 112.0
+offset_right = 354.0
+offset_bottom = 209.0
+grow_horizontal = 2
+text = "Angry Animals"
+label_settings = ExtResource("4_i3fi7")
+horizontal_alignment = 1
+vertical_alignment = 1

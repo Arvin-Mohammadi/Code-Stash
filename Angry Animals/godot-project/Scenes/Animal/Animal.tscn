@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://blka8nob1t0pq"]
+
+[ext_resource type="Script" uid="uid://d1nvt12b1d0df" path="res://Scenes/Animal/Animal.gd" id="1_oryip"]
+[ext_resource type="Texture2D" uid="uid://bcdm2laxr2gyf" path="res://Assets/player/parrot.png" id="1_qtpp4"]
+[ext_resource type="AudioStream" uid="uid://ceqxp35mqo2vb" path="res://Assets/audio/stretch2.ogg" id="2_lib84"]
+[ext_resource type="AudioStream" uid="uid://b5k1k3g1ax8re" path="res://Assets/audio/catapult.ogg" id="3_oryip"]
+[ext_resource type="AudioStream" uid="uid://c317hul68itfp" path="res://Assets/audio/kick_wood.ogg" id="4_x85cc"]
+[ext_resource type="Texture2D" uid="uid://c5ixdngbee2pk" path="res://Assets/items/arrow.png" id="6_x85cc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x85cc"]
+bounce = 0.3
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qtpp4"]
+radius = 19.026299
+
+[node name="Animal" type="RigidBody2D" unique_id=189580438]
+input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_x85cc")
+freeze = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_oryip")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=634764781]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_qtpp4")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1641610475]
+shape = SubResource("CircleShape2D_qtpp4")
+
+[node name="Debug" type="Label" parent="." unique_id=5687034]
+top_level = true
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 225.0
+offset_bottom = 140.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 24
+text = "Placeholder Text
+Placeholder Text
+Placeholder Text"
+
+[node name="StretchSound" type="AudioStreamPlayer2D" parent="." unique_id=260630472]
+stream = ExtResource("2_lib84")
+
+[node name="LaunchSound" type="AudioStreamPlayer2D" parent="." unique_id=2003940591]
+stream = ExtResource("3_oryip")
+
+[node name="KickSound" type="AudioStreamPlayer2D" parent="." unique_id=1765830334]
+stream = ExtResource("4_x85cc")
+
+[node name="Arrow" type="Sprite2D" parent="." unique_id=604110306]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_x85cc")
+offset = Vector2(150, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="sleeping_state_changed" from="." to="." method="_on_sleeping_state_changed"]

@@ -1,0 +1,51 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Angry Animals!"
+run/main_scene="uid://bd1cp2il07ysw"
+config/features=PackedStringArray("4.6", "Mobile")
+config/icon="uid://bxbqw4rl3tadx"
+
+[autoload]
+
+SignalBus="*uid://d2l1rnlbckudb"
+ScoreManager="*uid://cn1qffoiqu6vg"
+
+[display]
+
+window/stretch/mode="canvas_items"
+
+[dotnet]
+
+project/assembly_name="Angry Animals!"
+
+[editor]
+
+naming/scene_name_casing=1
+naming/script_name_casing=1
+
+[input]
+
+drag={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(293, 22),"global_position":Vector2(305, 82),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="mobile"
